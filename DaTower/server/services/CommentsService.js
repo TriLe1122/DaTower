@@ -4,12 +4,13 @@ import { dbContext } from "../db/DbContext.js"
 
 class CommentsService {
   async removeComment(id, userInfo) {
-    // const comment = await this.getCommentsByEventId(id)
-    // if (comment.creatorId.toString() != userInfo.id) {
-    //   throw new Forbidden('not your comment man')
-    // }
-
-    // return comment
+    const comment = await this.getCommentsById(id)
+    // @ts-ignore
+    if (comment.creatorId.toString() != userInfo) {
+      throw new Forbidden('not your comment man')
+    }
+    comment.remove()
+    return comment
   }
   async getCommentsByEventId(eventId) {
     const comments = await dbContext.Comments.find({ eventId }).populate('creator', 'name picture')
@@ -23,6 +24,10 @@ class CommentsService {
 
     const comment = await dbContext.Comments.create(commentData)
     await comment.populate('creator', 'name picture')
+    return comment
+  }
+  async getCommentsById(id) {
+    const comment = await dbContext.Comments.findById(id)
     return comment
   }
 

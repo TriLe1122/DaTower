@@ -11,7 +11,7 @@ export const TicketSchema = new Schema(
 
   SCHEMA_OPTIONS);
 
-TicketSchema.virtual("account", {
+TicketSchema.virtual("profile", {
   localField: "accountId",
   foreignField: "_id",
   justOne: true,
