@@ -9,6 +9,7 @@ export class AccountController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getUserAccount)
+      .get('/tickets', this.getMyTicketEvents)
   }
 
   async getUserAccount(req, res, next) {
@@ -22,10 +23,20 @@ export class AccountController extends BaseController {
 
   async getMyTicketEvents(req, res, next) {
     try {
-      const tickets = await ticketsService.getTicketsByAccountId(req.userInfo.id)
-      res.send(tickets)
+      const tickets = await ticketsService.getTicketsByAccountId()
     } catch (error) {
       next(error)
     }
+
   }
+
+
+  // async getMyTicketEvents(req, res, next) {
+  //   try {
+  //     const tickets = await ticketsService.getTicketsByAccountId(req.userInfo.id)
+  //     res.send(tickets)
+  //   } catch (error) {
+  //     next(error)
+  //   }
+  // }
 }

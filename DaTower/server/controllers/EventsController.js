@@ -26,6 +26,7 @@ export class EventsController extends BaseController {
 
     }
   }
+
   async cancelEvent(req, res, next) {
     try {
       const event = await eventsService.removeEvent(req.params.id, req.userInfo)

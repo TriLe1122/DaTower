@@ -5,7 +5,7 @@ class EventsService {
   async editEvent(eventData, userInfo, id) {
     const event = await this.getEventById(id)
     // @ts-ignore
-    if (userInfo.id != event.creatorId.toString()) {
+    if (userInfo.id != event.creatorId.toString() || event.isCanceled == true) {
       throw new Forbidden("this isnt your event")
     }
     event.name = eventData.name || event.name

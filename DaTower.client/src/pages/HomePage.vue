@@ -5,7 +5,7 @@
       <div class="d-flex justify-content-around my-3 text-light">
         <button @click="getEventsByType('')" class="btn selectable text-light">All</button>
         <button @click="getEventsByType('concert')" class="btn selectable text-light">Concerts</button>
-        <button @click="getEventsByType('expo')" class="btn selectable text-light"></button>
+        <button @click="getEventsByType('expo')" class="btn selectable text-light">Expos</button>
         <button @click="getEventsByType('convention')" class="btn selectable text-light">Conventions</button>
         <button @click="getEventsByType('sport')" class="btn selectable text-light">Sports</button>
         <button @click="getEventsByType('digital')" class="btn selectable text-light">Digitals</button>
