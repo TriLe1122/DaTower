@@ -1,15 +1,21 @@
 <template>
   <header>
-    <Navbar />
+
+    <section class="container-fluid bg-dark">
+      <div class="row justify-content-center">
+        <div class="col-12 d-flex ps-3">
+          <div class="logoFont">T</div>
+          <span><img src="src\assets\img\Vector.png" height="50" class="mt-4" alt="logo"></span>
+          <div class="logoFont">WER</div>
+        </div>
+      </div>
+    </section>
+
   </header>
-  <main>
+  <main class="bg-dark">
     <router-view />
   </main>
-  <footer>
-    <div class="bg-dark text-light text-center p-4">
-      Made with 💖 by CodeWorks
-    </div>
-  </footer>
+
 </template>
 
 <script>
@@ -28,4 +34,8 @@ export default {
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
+
+.logoFont {
+  font-size: 60px
+}
 </style>

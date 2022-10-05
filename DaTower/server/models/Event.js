@@ -5,11 +5,12 @@ export const EventSchema = new Schema({
   creatorId: { type: ObjectId, required: true, ref: "Account" },
   name: { type: String, minlength: 1, required: true },
   description: { type: String, minlength: 1, required: true },
+  coverImg: { type: String, required: true },
   location: { type: String, minlength: 1, required: true },
   capacity: { type: Number, required: true },
   startDate: { type: Date, required: true },
   isCanceled: { type: Boolean, default: false },
-  type: { type: String, enum: ['concert', 'convention', 'sport', 'digital'] },
+  type: { type: String, enum: ['concert', 'convention', 'sport', 'digital', 'expo', 'exhibit'] },
 }, SCHEMA_OPTIONS)
 
 
