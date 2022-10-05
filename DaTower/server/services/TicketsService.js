@@ -15,6 +15,7 @@ class TicketsService {
     return attending
 
   }
+
   async getTicketForEvent(eventId, accountId) {
     const ticket = await dbContext.Tickets.findOne({ eventId, accountId })
       .populate('profile', 'name picture')
@@ -28,7 +29,7 @@ class TicketsService {
   }
 
   async getTicketsByAccountId(accountId) {
-    const tickets = await dbContext.Tickets.find({ accountId }).populate('event', 'name description')
+    const tickets = await dbContext.Tickets.find({ accountId }).populate('event')
     return tickets
   }
 

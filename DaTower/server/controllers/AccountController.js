@@ -21,22 +21,23 @@ export class AccountController extends BaseController {
     }
   }
 
-  async getMyTicketEvents(req, res, next) {
-    try {
-      const tickets = await ticketsService.getTicketsByAccountId()
-    } catch (error) {
-      next(error)
-    }
-
-  }
-
-
   // async getMyTicketEvents(req, res, next) {
   //   try {
-  //     const tickets = await ticketsService.getTicketsByAccountId(req.userInfo.id)
+  //     const tickets = await ticketsService.getTicketsByAccountId()
   //     res.send(tickets)
   //   } catch (error) {
   //     next(error)
   //   }
+
   // }
+
+
+  async getMyTicketEvents(req, res, next) {
+    try {
+      const tickets = await ticketsService.getTicketsByAccountId(req.userInfo.id)
+      res.send(tickets)
+    } catch (error) {
+      next(error)
+    }
+  }
 }
