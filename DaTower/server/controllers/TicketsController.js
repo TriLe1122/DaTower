@@ -7,12 +7,12 @@ export class TicketsController extends BaseController {
     super('api/tickets')
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
-      .post('', this.getTicketToEvent)
+      .post('', this.addTicketToEvent)
       .delete('/:id', this.removeTicket)
   }
-  async getTicketToEvent(req, res, next) {
+  async addTicketToEvent(req, res, next) {
     try {
-      const ticket = await ticketsService.getTicketToEvent(req.body.eventId, req.userInfo.id)
+      const ticket = await ticketsService.addTicketToEvent(req.body.eventId, req.userInfo.id)
       res.send(ticket)
     } catch (error) {
       next(error)

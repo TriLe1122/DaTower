@@ -48,6 +48,14 @@ class EventsService {
     return events
   }
 
+  async getEventIfNotCanceled(eventId) {
+    const event = await this.getEventById(eventId)
+    if (event.isCanceled) {
+      throw new BadRequest('this event is canceled')
+    }
+    return event
+  }
+
 }
 
 
