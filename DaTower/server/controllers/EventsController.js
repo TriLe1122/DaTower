@@ -11,10 +11,20 @@ export class EventsController extends BaseController {
       .get('', this.getAllEvents)
       .get('/:id', this.getEventById)
       .get('/:id/comments', this.getCommentsByEventId)
+      .get('/:id/tickets', this.getTicketsByEventId)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createEvent)
       .delete('/:id', this.cancelEvent)
       .put('/:id', this.editEvent)
+
+  }
+  async getTicketsByEventId(req, res, next) {
+    try {
+      const tickets = await eventsService.getTicketsByEventId(req.params.id)
+      res.send(tickets)
+    } catch (error) {
+      next(error)
+    }
   }
 
 
@@ -23,7 +33,7 @@ export class EventsController extends BaseController {
       const comments = await commentsService.getCommentsByEventId(req.params.id)
       res.send(comments)
     } catch (error) {
-
+      next(error)
     }
   }
 

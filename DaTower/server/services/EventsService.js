@@ -2,6 +2,10 @@ import { BadRequest, Forbidden } from "@bcwdev/auth0provider/lib/Errors.js"
 import { dbContext } from "../db/DbContext.js"
 
 class EventsService {
+  async getTicketsByEventId(eventId) {
+    const ticket = await dbContext.Tickets.find({ eventId }).populate('profile', 'name picture')
+    return ticket
+  }
   async editEvent(eventData, userInfo, id) {
     const event = await this.getEventById(id)
     // @ts-ignore
@@ -55,6 +59,8 @@ class EventsService {
     }
     return event
   }
+
+
 
 }
 

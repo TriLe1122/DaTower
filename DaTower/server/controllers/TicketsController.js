@@ -12,7 +12,8 @@ export class TicketsController extends BaseController {
   }
   async addTicketToEvent(req, res, next) {
     try {
-      const ticket = await ticketsService.addTicketToEvent(req.body.eventId, req.userInfo.id)
+      req.body.accountId = req.userInfo.id
+      const ticket = await ticketsService.addTicketToEvent(req.body)
       res.send(ticket)
     } catch (error) {
       next(error)
@@ -21,6 +22,7 @@ export class TicketsController extends BaseController {
 
   async removeTicket(req, res, next) {
     try {
+      req.body.accountId = req.userInfo.id
       const ticket = await ticketsService.removeTicket(req.params.id, req.userInfo.id)
       res.send(ticket)
     } catch (error) {
