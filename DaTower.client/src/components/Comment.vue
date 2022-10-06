@@ -1,8 +1,9 @@
 <template>
-  <div class="Comment">
-    <!-- <img :src="comment.creator.picture" alt=""> -->
-    {{comment?.body}}
+  <div class="Comment col-8 align-items-center d-flex">
+    <img :src="comment.creator.picture" alt="" height="80" width="80" class="rounded-circle">
+    <p>{{comment.creator.name}}</p>
   </div>
+  <p>{{comment.body}}</p>
 </template>
 
 

@@ -16,9 +16,12 @@
       </div>
     </section>
   </div>
-  <div>
-    <Comment v-for="c in comments" :comment="c" />
-  </div>
+  <section class="container">
+    <div class="row bg-danger">
+      <Comment v-for="c in comments" :comment="c" />
+    </div>
+  </section>
+
 </template>
 
 
