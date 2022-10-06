@@ -10,5 +10,10 @@ class CommentsService {
     console.log(AppState.comments)
   }
 
+  async createComment(eventId) {
+    const res = await api.post(`api/events/${eventId}/comments`)
+    AppState.comments = [new Comment(res.data), ...AppState.comments]
+  }
+
 }
 export const commentsService = new CommentsService()

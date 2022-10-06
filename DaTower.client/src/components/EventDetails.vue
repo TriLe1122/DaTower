@@ -1,7 +1,7 @@
 <template>
   <div class="Event Details">
-    <section class="container">
-      <div class="row cool-img" :style="{backgroundImage: `url(${event.coverImg})`}">
+    <section class="container ">
+      <div class="row cool-img " :style="{backgroundImage: `url(${event.coverImg})`}">
         <div class="col-12 filter-card">
           <div class="row">
             <div class="col-4" :style="{backgroundImage: `url(${event.coverImg})`}">
@@ -13,7 +13,7 @@
               <p>{{event.description}}</p>
               <h6 class="text-dark">{{event.capacity}}<p>Spots Left</p>
               </h6>
-              <button class="btn btn-warning">
+              <button class="btn btn-warning" @click="addTicket()" :disabled="event.capacity== 0">
                 <i class="mdi mdi-person-outline"></i>
                 Attend
               </button>
@@ -30,10 +30,12 @@
 
 <script>
 import { computed } from "@vue/reactivity";
-import { onMounted } from "vue";
+import { useRoute } from "vue-router";
 import { AppState } from "../AppState.js";
 import { Event } from "../models/Event.js";
-;
+import { AuthService } from "../services/AuthService.js";
+import { eventsService } from "../services/EventsService.js";
+import Pop from "../utils/Pop.js";
 
 export default {
   props: {
@@ -44,7 +46,25 @@ export default {
   },
 
   setup() {
+    const route = useRoute();
     return {
+      account: computed(() => AppState.account),
+      async addTicket() {
+        try {
+          if (!AppState.account.id) {
+            return AuthService.loginWithPopup()
+          }
+          // if (AppState.account.id == AppState.event.id) {
+          //   throw new Error('youre already attending')
+          // }
+
+          await eventsService.addTicket({ eventId: AppState.activeEvent.id || route.params.id })
+        } catch (error) {
+          console.error('[]', error)
+          Pop.error(error)
+        }
+      }
+
     }
   }
 }

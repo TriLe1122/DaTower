@@ -1,19 +1,17 @@
 <template>
-  <div class="EventCard m-auto my-2 box">
-    <router-link :to="{name: 'Event', params:{ id: event.id}}">
-      <div class="events rounded" :style="{backgroundImage: `url(${event.coverImg})`}">
-        <p class="event-header fs-5">{{event.name}}</p>
-        <div class="event-info on-hover">
-          <p>{{event.location}}</p>
-          <p>{{event.startDate.substring(0,10)}}</p>
-        </div>
-        <h5 class="text-white shadow capacity ">{{event.capacity}} SPOTS LEFT</h5>
-        <h5 v-if="event.capacity==0" class="text-danger full text-center">No Capacity Left</h5>
+  <div class="EventCard">
+    <div class="row">
 
 
-
+      <div class="col-2">
+        <router-link :to="{name: 'Event', params:{ id: event.id}}">
+          <img :src="event.coverImg" alt="" class="events">
+        </router-link>
       </div>
-    </router-link>
+      <div class="col-6">
+        asdfasfd
+      </div>
+    </div>
   </div>
 </template>
 
@@ -48,11 +46,6 @@ export default {
   max-width: 287px;
   max-height: 251px;
 }
-
-// .capacity {
-//   background-color: #474c6171;
-//   backdrop-filter: blur(8px);
-// }
 
 .full {
   background-color: rgba(232, 25, 25, 0.455);

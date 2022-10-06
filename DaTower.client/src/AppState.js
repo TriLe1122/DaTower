@@ -20,5 +20,10 @@ export const AppState = reactive({
   /** @type {import('./models/Account.js').Account} */
   profiles: [],
 
-  tickets: []
+  tickets: [],
+
+  myTickets: [],
+
+  /** @type {import('./models/Event.js').Event[]} */
+  myEvents: []
 })

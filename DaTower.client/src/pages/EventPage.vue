@@ -4,20 +4,19 @@
     <EventDetails :event="event" />
   </div>
 
-  <div class="div">
-    <section class="container">
-      <p class="text-light">See Who's Attending!</p>
-      <div class="row  bg-grey rounded p-1">
-        <div class="col-12 d-flex">
-          <img v-for="t in tickets" :src="t.profile?.picture" alt="" :title="t.profile?.name" class="rounded-circle"
-            height="45" width="45">
 
-        </div>
+  <section class="container my-5">
+    <p class="text-light">See Who's Attending!</p>
+    <div class="row  bg-grey rounded p-1">
+      <div class="col-12 d-flex">
+        <img v-for="t in tickets" :src="t.profile?.picture" alt="" :title="t.profile?.name" class="rounded-circle"
+          height="45" width="45">
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
   <section class="container">
-    <div class="row bg-danger">
+    <div class="row bg-grey">
+      <EventCommentForm />
       <Comment v-for="c in comments" :comment="c" />
     </div>
   </section>
@@ -36,6 +35,7 @@ import Comment from "../components/Comment.vue";
 import EventDetails from "../components/EventDetails.vue";
 import { useRoute } from "vue-router";
 import Comment1 from "../components/Comment.vue";
+import EventCommentForm from "../components/EventCommentForm.vue";
 
 
 
@@ -86,7 +86,7 @@ export default {
       tickets: computed(() => AppState.tickets)
     };
   },
-  components: { Comment, EventDetails, Comment1 }
+  components: { Comment, EventDetails, Comment1, EventCommentForm }
 }
 </script>
 

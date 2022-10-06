@@ -15,7 +15,7 @@ class EventsService {
       res = await api.get('api/events')
     }
 
-    AppState.events = res.data.map(e => new Event(e))
+    AppState.events = res.data.map(e => new Event(e), ...AppState.events)
   }
 
   async getEventById(id) {
@@ -26,8 +26,21 @@ class EventsService {
   async getAttendeesByEventId(eventId) {
     const res = await api.get(`api/events/${eventId}/tickets`)
     AppState.tickets = res.data
-    console.log(AppState.tickets);
+    console.log('get attendees', AppState.tickets);
 
+  }
+
+  async addTicket(eventData) {
+    const res = await api.post('api/tickets', eventData)
+    const ticket = res.data
+
+    AppState.tickets.push(ticket)
+    AppState.events = res.data
+  }
+
+  async addEvent(formdata) {
+    const res = await api.post('api/events', formdata)
+    AppState.events = [new Event(res.data), ...AppState.events]
   }
 }
 
