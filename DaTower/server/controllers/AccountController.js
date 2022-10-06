@@ -21,15 +21,7 @@ export class AccountController extends BaseController {
     }
   }
 
-  // async getMyTicketEvents(req, res, next) {
-  //   try {
-  //     const tickets = await ticketsService.getTicketsByAccountId()
-  //     res.send(tickets)
-  //   } catch (error) {
-  //     next(error)
-  //   }
 
-  // }
 
 
   async getMyTicketEvents(req, res, next) {
