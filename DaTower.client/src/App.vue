@@ -21,7 +21,7 @@
 
         <router-view />
       </div>
-      <div class="col-md-1 bg-success sticky-top">
+      <div class="col-md-1 side-bar">
         <Login />
 
       </div>
@@ -51,5 +51,9 @@ export default {
 
 .logoFont {
   font-size: 60px
+}
+
+.side-bar {
+  background: linear-gradient(180deg, #474C61 0%, rgba(71, 76, 97, 0) 100%);
 }
 </style>

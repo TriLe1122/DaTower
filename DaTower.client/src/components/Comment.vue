@@ -1,12 +1,14 @@
 <template>
-  <div class="component">
-
-    {{comment.body}}
+  <div class="Comment">
+    <!-- <img :src="comment.creator.picture" alt=""> -->
+    {{comment?.body}}
   </div>
 </template>
 
 
 <script>
+import { Comment } from "../models/Comment.js";
+
 export default {
   props: {
     comment: { type: Comment, required: true }
