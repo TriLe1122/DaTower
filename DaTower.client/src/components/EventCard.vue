@@ -1,5 +1,5 @@
 <template>
-  <div class="EventCard m-auto my-2">
+  <div class="EventCard m-auto my-2 box">
     <router-link :to="{name: 'Event', params:{ id: event.id}}">
       <div class="events" :style="{backgroundImage: `url(${event.coverImg})`}">
 
@@ -49,5 +49,9 @@ export default {
   backdrop-filter: blur(8px);
   background-color: #474c612b;
 
+}
+
+.box {
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
 }
 </style>

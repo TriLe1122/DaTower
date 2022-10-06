@@ -8,7 +8,7 @@ class EventsService {
     if (type) {
       res = await api.get('api/events', {
         params: {
-          category: type
+          type: type
         }
       })
     } else {
