@@ -5,14 +5,14 @@
       <div class="row justify-content-center">
         <div class="col-12 d-flex ps-3">
           <div class="logoFont">T</div>
-          <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
+          <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }" aria-label="home" aria-title="home">
             <img src="src\assets\img\Vector.png" height="50" class="mt-4" alt="logo">
           </router-link>
 
 
+          <!-- aria-label="" aria-title="" -->
 
-
-          <div class="logoFont">WER</div>
+          <div class="logoFont" aria-label="" aria-title="">WER</div>
         </div>
       </div>
     </section>
@@ -30,22 +30,24 @@
       <div class="col-md-1 side-bar">
 
 
-        <Login class="btn btn-success" />
+        <Login aria-label="login" aria-title="login" />
 
 
-        <router-link class="navbar-brand d-flex" :to="{ name: 'Account' }" v-if="user.isAuthenticated">
+        <router-link class="navbar-brand d-flex" :to="{ name: 'Account' }" v-if="user.isAuthenticated"
+          aria-label="account" aria-title="account">
           <h5>Account</h5>
         </router-link>
 
-        <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
+        <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }" aria-label="home" aria-title="home">
           <h5>Home</h5>
         </router-link>
 
         <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
-          v-if="user.isAuthenticated">
+          v-if="user.isAuthenticated" aria-label="create event" aria-title="create event">
           New Event
         </button>
-        <button class="btn btn-warning" @click="logout()" v-if="user.isAuthenticated">
+        <button class="btn btn-warning" @click="logout()" v-if="user.isAuthenticated" aria-label="logout"
+          aria-title="logout">
           logout
         </button>
       </div>

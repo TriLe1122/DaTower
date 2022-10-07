@@ -8,7 +8,8 @@
             <div class="col-4" :style="{backgroundImage: `url(${event.coverImg})`}">
             </div>
             <div class="col-8 details shadow p-5">
-              <button class="btn btn-danger" v-if="account.id == event.creatorId" @click="deleteEvent()">Cancel
+              <button class="btn btn-danger" v-if="account.id == event.creatorId" @click="deleteEvent()"
+                aria-label="remove event" aria-title="remove event">Cancel
                 Event</button>
               <h4>{{event.name}}</h4>
               <p>{{event.location}}</p>
@@ -16,11 +17,13 @@
               <p>{{event.description}}</p>
               <h6 class="text-dark">{{event.capacity}}<p>Spots Left</p>
               </h6>
-              <button class="btn btn-warning" @click="addTicket()" :disabled="event.capacity== 0" v-if="!isAttending">
+              <button class="btn btn-warning" @click="addTicket()" :disabled="event.capacity== 0" v-if="!isAttending"
+                aria-label="add ticket" aria-title="add ticket">
                 <i class="mdi mdi-person-outline"></i>
                 Attend
               </button>
-              <button class="btn btn-danger text-white" @click="removeTicket()" v-else>
+              <button class="btn btn-danger text-white" @click="removeTicket()" v-else aria-label="remove ticket"
+                aria-title="remove ticker">
                 <i class="mdi mdi-close fs-4"></i>
                 <!-- <h4>Un-Collab</h4> -->
               </button>

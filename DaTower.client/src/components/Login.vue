@@ -1,7 +1,7 @@
 <template>
   <span class="navbar-text">
     <button class="btn selectable text-success lighten-30 text-uppercase my-2 my-lg-0" @click="login"
-      v-if="!user.isAuthenticated">
+      v-if="!user.isAuthenticated" aria-label="log in" aria-title="log in">
       Login
     </button>
 
@@ -14,11 +14,12 @@
       </div>
       <div class="dropdown-menu p-0 list-group w-100" aria-labelledby="authDropdown">
         <router-link :to="{ name: 'Account' }">
-          <div class="list-group-item list-group-item-action hoverable">
+          <div class="list-group-item list-group-item-action hoverable" aria-label="account" aria-title="account">
             Manage Account
           </div>
         </router-link>
-        <div class="list-group-item list-group-item-action hoverable text-danger" @click="logout">
+        <div class="list-group-item list-group-item-action hoverable text-danger" @click="logout" aria-label="logout"
+          aria-title="logout">
           <i class="mdi mdi-logout"></i>
           logout
         </div>

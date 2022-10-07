@@ -1,13 +1,15 @@
 <template>
-  <div class="Comment col-8 align-items-center d-flex">
-    <img :src="comment.creator.picture" alt="" height="80" width="80" class="rounded-circle">
-    <p>{{comment.creator.name}}</p>
-  </div>
-  <p>{{comment.body}}</p>
-  <div>
-    <i class="mdi mdi-trash-can selectable text-danger m-3 rounded" @click="deleteComment()"
-      v-if="account.id == comment.creatorId">
-    </i>
+  <div class="Comment align-items-center d-flex bg-warning my-2 p-1">
+    <div class="col-2 ms-2">
+      <img :src="comment.creator.picture" alt="" height="80" width="80" class="rounded-circle">
+    </div>
+    <div class="col-9">
+      <b>{{comment.creator.name}}</b>
+      <p>{{comment.body}}</p>
+      <i class="mdi mdi-trash-can selectable text-danger rounded" @click="deleteComment()"
+        v-if="account.id == comment.creatorId" aria-label="delete comment" aria-title="delete comment">
+      </i>
+    </div>
   </div>
 </template>
  

@@ -1,6 +1,7 @@
 <template>
   <div class="EventCard m-auto my-2 box">
-    <router-link :to="{name: 'Event', params:{ id: event.id}}">
+    <router-link :to="{name: 'Event', params:{ id: event.id}}" aria-label="event page and details"
+      aria-title="event page and details">
       <div class="events rounded" :style="{backgroundImage: `url(${event.coverImg})`}">
         <p class="event-header fs-5">{{event.name}}</p>
         <div class="event-info on-hover">

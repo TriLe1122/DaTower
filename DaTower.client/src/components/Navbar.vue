@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-    <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
+    <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }" aria-label="home" aria-title="home">
       <div class="d-flex flex-column align-items-center">
         <h1>T<img alt="logo" src="../assets/img/Vector.png" height="45" />OWER</h1>
       </div>
@@ -12,13 +12,13 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
         <li>
-          <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
+          <!-- <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
             About
-          </router-link>
+          </router-link> -->
         </li>
       </ul>
       <!-- LOGIN COMPONENT HERE -->
-      <Login />
+      <Login aria-label="login" aria-title="login" />
     </div>
   </nav>
 </template>

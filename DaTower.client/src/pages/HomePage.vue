@@ -3,12 +3,17 @@
     <Banner class="" />
     <div class="col-12 bg-grey rounded">
       <div class="d-flex justify-content-around my-3 text-light">
-        <button @click="getEventsByType('')" class="btn selectable text-light">All</button>
-        <button @click="getEventsByType('concert')" class="btn selectable text-light">Concerts</button>
+        <button @click="getEventsByType('')" class="btn selectable text-light" aria-label="all"
+          aria-title="all">All</button>
+        <button @click="getEventsByType('concert')" class="btn selectable text-light" aria-label="concert"
+          aria-title="concert">Concerts</button>
         <!-- <button @click="getEventsByType('expo')" class="btn selectable text-light">Expos</button> -->
-        <button @click="getEventsByType('convention')" class="btn selectable text-light">Conventions</button>
-        <button @click="getEventsByType('sport')" class="btn selectable text-light">Sports</button>
-        <button @click="getEventsByType('digital')" class="btn selectable text-light">Digitals</button>
+        <button @click="getEventsByType('convention')" class="btn selectable text-light" aria-label="conventions"
+          aria-title="conventions">Conventions</button>
+        <button @click="getEventsByType('sport')" class="btn selectable text-light" aria-label="sports"
+          aria-title="sports">Sports</button>
+        <button @click="getEventsByType('digital')" class="btn selectable text-light" aria-label="digitals"
+          aria-title="digitals">Digitals</button>
       </div>
     </div>
   </section>

@@ -13,6 +13,11 @@ class AccountService {
     }
   }
 
+  async removeMyTicket(ticketId) {
+    await api.delete(`api/tickets/` + ticketId)
+    AppState.myTickets = AppState.myTickets.filter(t => t.id != ticketId)
+  }
+
   async getMyTickets() {
     const res = await api.get('account/tickets')
     AppState.myTickets = res.data
@@ -21,11 +26,15 @@ class AccountService {
 
   async getMyEvents() {
     const res = await api.get('api/events')
-    AppState.myEvents = res.data.map(e => new Event(e))
+    console.log("My events in service", res.data)
     // console.log(AppState.myEvents, "my events");
 
 
-    AppState.myEvents = AppState.myEvents.filter(e => e.creator.id == AppState.account.id)
+    // AppState.myEvents = AppState.myEvents.filter(e => e.creator.id == AppState.account.id)
+    // AppState.myEvents = res.data
+
+    AppState.myEvents = res.data.map(e => new Event(e))
+    // AppState.myEvents = AppState.myEvents.filter(e => e.creator.id == AppState.account.id)
   }
 }
 

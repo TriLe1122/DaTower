@@ -3,7 +3,7 @@
     <div class="row events">
       <h5 class="text-success">My Events</h5>
       <div class="col-md-3 " v-for="e in events" :key="e.id">
-        <EventCard :event="e" />
+        <EventCard :event="e" aria-label="event page and details" aria-title="event page and details" />
       </div>
     </div>
   </section>
@@ -56,7 +56,7 @@ export default {
     return {
       account: computed(() => AppState.account),
       tickets: computed(() => AppState.myTickets),
-      events: computed(() => AppState.myEvents),
+      events: computed(() => AppState.myEvents.filter(e => e.creator.id == AppState.account.id)),
     };
   },
   components: { EventCard, MyTickes }

@@ -1,21 +1,22 @@
 <template>
   <div class="mb-3 justify-content-center">
-    <form @submit.prevent="handleSubmit()">
+    <form @submit.prevent="handleSubmit()" aria-label="comment on an event" aria-title="comment on an event">
       <div>
         <div class="d-flex">
         </div>
-        <div class="card bg-grey text-end mb-2 d-flex">
+        <div class="card border-none bg-grey text-end mb-2 d-flex">
           <div class=" ">
             <div class="form-group m-auto card-body">
               <div class="form-group">
-                <label for="exampleFormControlTextarea1" class="text-success">Join the Conversation</label>
+                <label for="exampleFormControlTextarea1" class="text-success mb-2">Join the Conversation</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model="editable.body"
-                  minlength="1" placeholder="Tell the people..."></textarea>
+                  minlength="1" placeholder="Tell the people..." required></textarea>
               </div>
             </div>
           </div>
           <div class="d-flex justify-content-end">
-            <button class="btn btn-success" type="submit">Press here, Morty</button>
+            <button class="btn btn-success" type="submit" aria-label="submit comment" aria-title="submit comment">Post
+              Comment</button>
           </div>
         </div>
       </div>
@@ -60,17 +61,6 @@ export default {
 
 
 <style lang="scss" scoped>
-// .card {
-//   background-color: rgba(3, 3, 3, 0.503);
-//   backdrop-filter: blur(8px);
-// }
 
-// textarea {
-//   background-color: rgba(25, 84, 11, 0.592);
-// }
-
-// .green {
-//   background-color: rgba(25, 84, 11, 0.592);
-// }
 </style>
 
