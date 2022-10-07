@@ -9,7 +9,13 @@
       </router-link>
     </div>
     <div class="col-8">
-      <button class="btn btn-danger cancel" @click="removeTicket()" aria-label="remove ticket"
+      <div class="cancel ">
+        <h5 class="me-3">
+          {{ticket.event.name}}
+        </h5>
+        {{ticket.event.startDate.substring(0,10)}}
+      </div>
+      <button class="btn btn-danger remove" @click="removeTicket()" aria-label="remove ticket"
         aria-title="remove ticket">Remove Ticket</button>
     </div>
 
@@ -68,6 +74,10 @@ export default {
   width: max-content;
   transform: translateX(40rem);
 
+}
+
+.remove {
+  transform: translateX(10rem) translateY(-10rem);
 }
 
 .event-header {

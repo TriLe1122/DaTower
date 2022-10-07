@@ -5,7 +5,7 @@
 
         <div class="col-12 filter-card">
           <div class="row">
-            <div class="col-4" :style="{backgroundImage: `url(${event.coverImg})`}">
+            <div class="col-4 pic" :style="{backgroundImage: `url(${event.coverImg})`}">
             </div>
             <div class="col-8 details shadow p-5">
               <button class="btn btn-danger" v-if="account.id == event.creatorId" @click="deleteEvent()"
@@ -22,11 +22,15 @@
                 <i class="mdi mdi-person-outline"></i>
                 Attend
               </button>
-              <button class="btn btn-danger text-white" @click="removeTicket()" v-else aria-label="remove ticket"
+              <button class="btn btn-danger" @click="removeTicket()" :disabled="event.capacity== 0" v-else
+                aria-label="remove ticker" aria-title="remove ticket">
+                <i class="mdi mdi-person-outline"></i>
+                Leave
+              </button>
+              <!-- <button class="btn btn-danger text-white" @click="removeTicket()" v-else aria-label="remove ticket"
                 aria-title="remove ticker">
                 <i class="mdi mdi-close fs-4"></i>
-                <!-- <h4>Un-Collab</h4> -->
-              </button>
+              </button> -->
             </div>
           </div>
         </div>
@@ -111,5 +115,11 @@ export default {
 
 .shadow {
   text-shadow: 1px 1px black, 0px 0px 5px #ffd464;
+}
+
+.pic {
+  background-size: cover;
+  background-position: center;
+
 }
 </style>

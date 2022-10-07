@@ -6,14 +6,16 @@
         <EventCard :event="e" aria-label="event page and details" aria-title="event page and details" />
       </div>
     </div>
+    <div class="tickets">
+      <div class="col-md-3" v-for="t in tickets">
+        <MyTickes :ticket="t" />
+      </div>
+    </div>
+
   </section>
 
 
-  <div class="tickets">
-    <div class="col-md-3" v-for="t in tickets">
-      <MyTickes :ticket="t" />
-    </div>
-  </div>
+
 </template>
 
 
