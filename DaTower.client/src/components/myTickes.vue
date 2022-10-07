@@ -1,5 +1,6 @@
 <template>
-  <div class="EventCard ticket row my-4 position-relative rounded border border-success border-3">
+  <div
+    class="EventCard ticket row my-4 position-relative rounded border border-success border-3 justify-content-center">
 
     <div class="col-4">
       <router-link :to="{name: 'Event', params:{ id: ticket.event.id}}" aria-label="event page and details"
@@ -65,6 +66,8 @@ export default {
 .ticket {
   background-image: url("../assets/img/Ticket.png");
   width: max-content;
+  transform: translateX(40rem);
+
 }
 
 .event-header {

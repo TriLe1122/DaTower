@@ -9,7 +9,7 @@
   </section>
 
 
-  <div class="">
+  <div class="tickets">
     <div class="col-md-3" v-for="t in tickets">
       <MyTickes :ticket="t" />
     </div>
@@ -65,6 +65,11 @@ export default {
 
 <style scoped>
 .events {
+  height: 35.5rem;
+  overflow-y: auto;
+}
+
+.tickets {
   height: 35.5rem;
   overflow-y: auto;
 }

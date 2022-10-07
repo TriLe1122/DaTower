@@ -15,7 +15,7 @@
               <p>{{event.location}}</p>
               <p>{{event.startDate.substring(0,10)}}</p>
               <p>{{event.description}}</p>
-              <h6 class="text-dark">{{event.capacity}}<p>Spots Left</p>
+              <h6 class="">{{event.capacity}}<p>Spots Left</p>
               </h6>
               <button class="btn btn-warning" @click="addTicket()" :disabled="event.capacity== 0" v-if="!isAttending"
                 aria-label="add ticket" aria-title="add ticket">

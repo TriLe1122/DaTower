@@ -22,12 +22,12 @@
 
 
   <main class="bg-dark  container-fluid">
-    <div class="row">
-      <div class="col-md-11">
+    <div class="row rounded">
+      <div class="col-md-11 rounded">
 
         <router-view />
       </div>
-      <div class="col-md-1 side-bar">
+      <div class="col-md-1 side-bar d-flex flex-column align-items-center">
 
 
         <Login aria-label="login" aria-title="login" />
