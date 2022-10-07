@@ -50,6 +50,11 @@ export default {
   height: 251px;
   max-width: 287px;
   max-height: 251px;
+
+  background-size: cover;
+  background-position: center;
+
+
 }
 
 // .capacity {
