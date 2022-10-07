@@ -8,5 +8,6 @@ export class Comment {
     this.isAttending = data.isAttending
     this.creator = new Account(data.creator)
     this.event = new Event(data.event)
+    this.id = data.id
   }
 }

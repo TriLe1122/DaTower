@@ -2,20 +2,27 @@
   <div class="Event Details">
     <section class="container ">
       <div class="row cool-img " :style="{backgroundImage: `url(${event.coverImg})`}">
+
         <div class="col-12 filter-card">
           <div class="row">
             <div class="col-4" :style="{backgroundImage: `url(${event.coverImg})`}">
             </div>
             <div class="col-8 details shadow p-5">
+              <button class="btn btn-danger" v-if="account.id == event.creatorId" @click="deleteEvent()">Cancel
+                Event</button>
               <h4>{{event.name}}</h4>
               <p>{{event.location}}</p>
               <p>{{event.startDate.substring(0,10)}}</p>
               <p>{{event.description}}</p>
               <h6 class="text-dark">{{event.capacity}}<p>Spots Left</p>
               </h6>
-              <button class="btn btn-warning" @click="addTicket()" :disabled="event.capacity== 0">
+              <button class="btn btn-warning" @click="addTicket()" :disabled="event.capacity== 0" v-if="!isAttending">
                 <i class="mdi mdi-person-outline"></i>
                 Attend
+              </button>
+              <button class="btn btn-danger text-white" @click="removeTicket()" v-else>
+                <i class="mdi mdi-heart fs-4"></i>
+                <!-- <h4>Un-Collab</h4> -->
               </button>
             </div>
           </div>
@@ -49,21 +56,43 @@ export default {
     const route = useRoute();
     return {
       account: computed(() => AppState.account),
+      isAttending: computed(() => AppState.tickets.find(t => t.accountId == AppState.account.id)),
       async addTicket() {
         try {
           if (!AppState.account.id) {
             return AuthService.loginWithPopup()
           }
-          // if (AppState.account.id == AppState.event.id) {
-          //   throw new Error('youre already attending')
-          // }
-
           await eventsService.addTicket({ eventId: AppState.activeEvent.id || route.params.id })
         } catch (error) {
           console.error('[]', error)
           Pop.error(error)
         }
+      },
+
+      async removeTicket() {
+        try {
+          const yes = await Pop.confirm('are you sure you want to leave this event?')
+          if (!yes) { return }
+          const ticket = AppState.tickets.find(t => t.accountId == AppState.account.id && t.eventId == AppState.activeEvent.id)
+          await eventsService.removeTicket(ticket.id)
+        } catch (error) {
+          console.error('[]', error)
+          Pop.error(error)
+        }
+      },
+
+      async deleteEvent() {
+        try {
+          const yes = await Pop.confirm('Wanna Cancel Your Own Event?')
+          if (!yes) { return }
+          await eventsService.deleteEvent(AppState.activeEvent.id)
+        } catch (error) {
+          console.error('[]', error)
+          Pop.error(error)
+        }
       }
+
+
 
     }
   }

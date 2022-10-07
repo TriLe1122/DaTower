@@ -5,5 +5,6 @@ export class Ticket {
     this.eventId = data.eventId
     this.accountId = (data.accountId)
     this.profile = new Account(data.profile)
+    this.id = data.id
   }
 }

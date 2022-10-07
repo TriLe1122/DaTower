@@ -1,6 +1,6 @@
 <template>
   <div class="mb-3 justify-content-center">
-    <form @submit.prevent="handleSubmit">
+    <form @submit.prevent="handleSubmit()">
       <div>
         <div class="d-flex">
         </div>
@@ -33,17 +33,18 @@ import { commentsService } from "../services/CommentsService.js";
 
 export default {
   setup() {
-    const editable = ref({
-      post: {}
-    })
+    const editable = ref({})
     return {
       account: computed(() => AppState.account),
       editable,
       activeEvent: computed(() => AppState.activeEvent),
       async handleSubmit() {
         try {
+
+          const formData = editable.value
           editable.value.eventId = AppState.activeEvent.id;
-          await commentsService.createComment(editable.value);
+          await commentsService.createComment(formData);
+          editable.value = {}
         } catch (error) {
           Pop.error(error, '[addComment]');
         }

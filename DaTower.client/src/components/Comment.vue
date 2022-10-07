@@ -4,19 +4,38 @@
     <p>{{comment.creator.name}}</p>
   </div>
   <p>{{comment.body}}</p>
+  <div>
+    <i class="mdi mdi-trash-can selectable text-danger m-3 rounded" @click="deleteComment()">
+    </i>
+  </div>
 </template>
-
+ <!-- v-if="account.id == comment.creatorId" -->
 
 <script>
+import { computed } from "@vue/reactivity";
+import { AppState } from "../AppState.js";
 import { Comment } from "../models/Comment.js";
+import { commentsService } from "../services/CommentsService.js";
+import Pop from "../utils/Pop.js";
 
 export default {
   props: {
     comment: { type: Comment, required: true }
   },
-  setup() {
-
-    return {}
+  setup(props) {
+    return {
+      account: computed(() => AppState.account),
+      async deleteComment() {
+        try {
+          const yes = await Pop.confirm('remove your comment?')
+          if (!yes) { return }
+          await commentsService.deleteComment(props.comment.id)
+        } catch (error) {
+          console.error('[]', error)
+          Pop.error(error)
+        }
+      }
+    }
   }
 }
 </script>
