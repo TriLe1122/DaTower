@@ -5,13 +5,13 @@ import { api } from "./AxiosService.js"
 class CommentsService {
   async getCommentsByEventId(eventId) {
     const res = await api.get(`api/events/${eventId}/comments`)
-    console.log(res.data);
+    // console.log(res.data);
     AppState.comments = res.data.map(c => new Comment(c))
-    console.log(AppState.comments)
+    // console.log(AppState.comments)
   }
 
   async createComment(eventData) {
-    console.log(eventData);
+    // console.log(eventData);
     const res = await api.post(`api/comments`, eventData)
     AppState.comments = [new Comment(res.data), ...AppState.comments]
   }

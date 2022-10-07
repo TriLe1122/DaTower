@@ -21,6 +21,8 @@
 <script>
 import { Event } from "../models/Event.js";
 
+
+
 export default {
   props: {
     event: {

@@ -1,28 +1,30 @@
 <template>
   <div class="EventCard">
-    <div class="row">
+    <div class="row" v-if="!ticket.event.isCanceled">
 
 
-      <div class="col-2">
-        <router-link :to="{name: 'Event', params:{ id: event.id}}">
-          <img :src="event.coverImg" alt="" class="events">
-        </router-link>
+      <div class="col-8" :style="{backgroundImage: `url(${ticket.event.coverImg})`}">
+
+        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi fugit aspernatur, consequuntur ut aliquam
+          itaque eveniet consequatur facere facilis. Rerum accusantium quasi aspernatur unde necessitatibus ex sed
+          mollitia ratione ab?</h5>
+
       </div>
-      <div class="col-6">
-        asdfasfd
-      </div>
+
     </div>
   </div>
 </template>
 
 
 <script>
-import { Event } from "../models/Event.js";
+
+import { Ticket } from "../models/Ticket.js";
 
 export default {
   props: {
-    event: {
-      type: Event,
+
+    ticket: {
+
       required: true
     }
   },

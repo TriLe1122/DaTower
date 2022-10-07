@@ -1,4 +1,4 @@
-import { Account } from "./Account.js"
+
 
 export class Event {
   constructor(data) {
@@ -12,6 +12,6 @@ export class Event {
     this.startDate = data.startDate
     this.isCanceled = data.isCanceled
     this.type = data.type
-
+    this.creator = data.creator
   }
 }

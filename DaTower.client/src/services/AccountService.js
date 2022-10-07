@@ -1,4 +1,5 @@
 import { AppState } from '../AppState'
+import { Event } from "../models/Event.js"
 import { logger } from '../utils/Logger'
 import { api } from './AxiosService'
 
@@ -15,16 +16,16 @@ class AccountService {
   async getMyTickets() {
     const res = await api.get('account/tickets')
     AppState.myTickets = res.data
-    console.log(AppState.myTickets, "mytickets");
+    // console.log(AppState.myTickets, "mytickets");
   }
 
   async getMyEvents() {
     const res = await api.get('api/events')
-    AppState.myEvents = res.data
+    AppState.myEvents = res.data.map(e => new Event(e))
+    // console.log(AppState.myEvents, "my events");
 
 
     AppState.myEvents = AppState.myEvents.filter(e => e.creator.id == AppState.account.id)
-    console.log(AppState.myEvents, "my events");
   }
 }
 

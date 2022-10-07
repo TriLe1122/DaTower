@@ -21,7 +21,7 @@
                 Attend
               </button>
               <button class="btn btn-danger text-white" @click="removeTicket()" v-else>
-                <i class="mdi mdi-heart fs-4"></i>
+                <i class="mdi mdi-close fs-4"></i>
                 <!-- <h4>Un-Collab</h4> -->
               </button>
             </div>

@@ -5,11 +5,12 @@
   </div>
   <p>{{comment.body}}</p>
   <div>
-    <i class="mdi mdi-trash-can selectable text-danger m-3 rounded" @click="deleteComment()">
+    <i class="mdi mdi-trash-can selectable text-danger m-3 rounded" @click="deleteComment()"
+      v-if="account.id == comment.creatorId">
     </i>
   </div>
 </template>
- <!-- v-if="account.id == comment.creatorId" -->
+ 
 
 <script>
 import { computed } from "@vue/reactivity";

@@ -1,19 +1,19 @@
 <template>
   <section class="container-fluid">
-    <div class="row">
+    <div class="row events">
       <h5 class="text-success">My Events</h5>
-      <!-- <div class="col-md-3" v-for="e in events" :key="e.id">
+      <div class="col-md-3 " v-for="e in events" :key="e.id">
         <EventCard :event="e" />
-      </div> -->
+      </div>
     </div>
   </section>
 
 
-
-  <div class="col-md-3" v-for="e in events" :key="e.id">
-    <MyTickes :event="e" />
+  <div class="">
+    <div class="col-md-3" v-for="t in tickets">
+      <MyTickes :ticket="t" />
+    </div>
   </div>
-
 </template>
 
 
@@ -64,5 +64,8 @@ export default {
 </script>
 
 <style scoped>
-
+.events {
+  height: 35.5rem;
+  overflow-y: auto;
+}
 </style>

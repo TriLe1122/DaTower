@@ -17,6 +17,7 @@ class EventsService {
     }
 
     AppState.events = res.data.map(e => new Event(e), ...AppState.events)
+    console.log(AppState.events);
   }
 
   async getEventById(id) {
@@ -27,7 +28,7 @@ class EventsService {
   async getAttendeesByEventId(eventId) {
     const res = await api.get(`api/events/${eventId}/tickets`)
     AppState.tickets = res.data
-    console.log('get attendees', AppState.tickets);
+    // console.log('get attendees', AppState.tickets);
 
   }
   async addEvent(formdata) {
@@ -37,21 +38,22 @@ class EventsService {
     router.push({ name: 'Event', params: { id: AppState.activeEvent.id } })
   }
   async addTicket(eventData) {
-    console.log(eventData);
+    // console.log(eventData);
     const res = await api.post('api/tickets', eventData)
     const ticket = res.data
     AppState.tickets.push(ticket)
-    AppState.events = res.data
+    // AppState.events = res.data
     AppState.activeEvent.capacity--
   }
   async removeTicket(ticketId) {
     await api.delete('api/tickets/' + ticketId)
     AppState.tickets = AppState.tickets = AppState.tickets.filter(t => t.id != ticketId)
-    AppState.activeEvent.capacity--
+    AppState.activeEvent.capacity++
   }
 
   async deleteEvent(id) {
     await api.delete(`api/events/${id}`)
+    AppState.activeEvent.isCanceled = true
     AppState.events = AppState.events.filter(e => e.id != id)
     router.push({ name: 'Home' })
   }
