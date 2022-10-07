@@ -12,6 +12,7 @@
                 aria-label="remove event" aria-title="remove event">Cancel
                 Event</button>
               <h4>{{event.name}}</h4>
+              <b>{{event.type}}</b>
               <p>{{event.location}}</p>
               <p>{{event.startDate.substring(0,10)}}</p>
               <p>{{event.description}}</p>

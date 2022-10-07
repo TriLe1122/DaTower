@@ -1,12 +1,14 @@
 <template>
   <section class="container-fluid">
     <div class="row events">
-      <h5 class="text-success">My Events</h5>
+      <h5 class="text-success mt-3">My Events</h5>
       <div class="col-md-3 " v-for="e in events" :key="e.id">
-        <EventCard :event="e" aria-label="event page and details" aria-title="event page and details" />
+        <EventCard :event="e" aria-label="event page and details" aria-title="event page and details"
+          title="event details" />
       </div>
     </div>
     <div class="tickets">
+      <h5 class="text-success">Your Tickets</h5>
       <div class="col-md-3" v-for="t in tickets">
         <MyTickes :ticket="t" />
       </div>

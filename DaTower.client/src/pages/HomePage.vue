@@ -22,7 +22,7 @@
   <section class="container-fluid">
     <div class="row">
       <div class="col-md-3" v-for="e in events" :key="e.id">
-        <EventCard :event="e" />
+        <EventCard :event="e" title="event details" />
       </div>
     </div>
   </section>

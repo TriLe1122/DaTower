@@ -4,7 +4,8 @@
     <section class="container-fluid bg-dark">
       <div class="row justify-content-center">
         <div class="col-12 d-flex ps-3">
-          <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }" aria-label="home" aria-title="home">
+          <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }" aria-label="home" aria-title="home"
+            title="home">
             <div class="logoFont">T</div>
             <img src="src\assets\img\Vector.png" height="50" class="mt-4" alt="logo">
             <div class="logoFont" aria-label="" aria-title="">WER</div>
@@ -31,11 +32,11 @@
 
         <router-link class="navbar-brand d-flex" :to="{ name: 'Account' }" v-if="user.isAuthenticated"
           aria-label="account" aria-title="account">
-          <h5 class="my-4">Account</h5>
+          <h5 class="my-4 selectable rounded p-1">Account</h5>
         </router-link>
 
         <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }" aria-label="home" aria-title="home">
-          <h5 class="my-3">Home</h5>
+          <h5 class="my-3 selectable p-1 rounded">Home</h5>
         </router-link>
 
         <button class="btn btn-success my-4" data-bs-toggle="modal" data-bs-target="#exampleModal"

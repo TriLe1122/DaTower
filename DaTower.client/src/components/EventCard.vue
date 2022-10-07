@@ -74,6 +74,8 @@ export default {
 .event-info {
   backdrop-filter: blur(8px);
   background-color: #474c61c5;
-
+  transform: translateY(8.5rem);
+  text-shadow: 1px 1px black, 0px 0px 5px rgba(162, 75, 75, 0.887);
+  color: white;
 }
 </style>
