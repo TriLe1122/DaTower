@@ -30,10 +30,10 @@
       <div class="col-md-1 side-bar">
 
 
-        <Login />
+        <Login class="btn btn-success" />
 
 
-        <router-link class="navbar-brand d-flex" :to="{ name: 'Account' }">
+        <router-link class="navbar-brand d-flex" :to="{ name: 'Account' }" v-if="user.isAuthenticated">
           <h5>Account</h5>
         </router-link>
 
@@ -41,10 +41,11 @@
           <h5>Home</h5>
         </router-link>
 
-        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
+          v-if="user.isAuthenticated">
           New Event
         </button>
-        <button class="btn btn-warning" @click="logout()">
+        <button class="btn btn-warning" @click="logout()" v-if="user.isAuthenticated">
           logout
         </button>
       </div>
@@ -148,6 +149,7 @@ export default {
     return {
       editable,
       appState: computed(() => AppState),
+      user: computed(() => AppState.user),
       async logout() {
         AuthService.logout({ returnTo: window.location.origin })
       },

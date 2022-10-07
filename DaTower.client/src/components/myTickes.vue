@@ -1,21 +1,17 @@
 <template>
-  <div class="EventCard">
-    <div class="row" v-if="!ticket.event.isCanceled">
+  <div class="EventCard m-auto my-2 box">
+
+    <div class="events rounded" :style="{backgroundImage: `url(${ticket.event.coverImg})`}">
 
 
-      <div class="col-8" :style="{backgroundImage: `url(${ticket.event.coverImg})`}">
 
-        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi fugit aspernatur, consequuntur ut aliquam
-          itaque eveniet consequatur facere facilis. Rerum accusantium quasi aspernatur unde necessitatibus ex sed
-          mollitia ratione ab?</h5>
-
-      </div>
 
     </div>
+
   </div>
 </template>
 
-
+:style="{backgroundImage: `url(${ticket.event.coverImg})`}"
 <script>
 
 import { Ticket } from "../models/Ticket.js";

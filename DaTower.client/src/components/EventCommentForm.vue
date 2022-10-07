@@ -30,6 +30,7 @@ import { ref } from "vue";
 import { AppState } from "../AppState.js";
 import Pop from "../utils/Pop.js";
 import { commentsService } from "../services/CommentsService.js";
+import { AuthService } from "../services/AuthService.js";
 
 export default {
   setup() {
@@ -40,6 +41,9 @@ export default {
       activeEvent: computed(() => AppState.activeEvent),
       async handleSubmit() {
         try {
+          if (!AppState.account.id) {
+            return AuthService.loginWithPopup()
+          }
 
           const formData = editable.value
           editable.value.eventId = AppState.activeEvent.id;
