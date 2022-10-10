@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="tickets">
-      <h5 class="text-success">Your Tickets</h5>
+      <!-- <h5 class="text-success">Your Tickets</h5> -->
       <div class="col-md-3" v-for="t in tickets">
         <MyTickes :ticket="t" />
       </div>
@@ -73,8 +73,8 @@ export default {
   overflow-y: auto;
 }
 
-.tickets {
+/* .tickets {
   height: 35.5rem;
   overflow-y: auto;
-}
+} */
 </style>

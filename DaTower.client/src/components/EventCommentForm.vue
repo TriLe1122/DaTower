@@ -40,6 +40,7 @@ export default {
       account: computed(() => AppState.account),
       editable,
       activeEvent: computed(() => AppState.activeEvent),
+
       async handleSubmit() {
         try {
           if (!AppState.account.id) {

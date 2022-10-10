@@ -1,7 +1,7 @@
 <template>
   <div class="Event Details">
     <section class="container ">
-      <div class="row cool-img " :style="{backgroundImage: `url(${event.coverImg})`}">
+      <div class="row cool-img " :style="{backgroundImage: `url(${event.coverImg})`}" :title="event.name">
 
         <div class="col-12 filter-card">
           <div class="row">
@@ -112,6 +112,8 @@ export default {
 .details {
   background-color: rgba(20, 15, 15, 0.524);
   backdrop-filter: blur(10px);
+  background-size: cover;
+  background-position: center;
 }
 
 .shadow {

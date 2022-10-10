@@ -77,7 +77,7 @@ export default {
 }
 
 .remove {
-  transform: translateX(10rem) translateY(-10rem);
+  transform: translateX(10rem) translateY(8rem);
 }
 
 .event-header {
