@@ -7,7 +7,7 @@
           <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }" aria-label="home" aria-title="home"
             title="home">
             <div class="logoFont">T</div>
-            <img src="src\assets\img\Vector.png" height="50" class="mt-4" alt="logo">
+            <!-- <img src="src\assets\img\Vector.png" height="50" class="mt-4" alt="logo"> -->
             <div class="logoFont" aria-label="" aria-title="">WER</div>
           </router-link>
         </div>
