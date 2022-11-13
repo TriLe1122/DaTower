@@ -26,12 +26,11 @@ class AccountService {
 
   async getMyEvents() {
     const res = await api.get('api/events')
-    console.log("My events in service", res.data)
+    // console.log("My events in service", res.data)
     // console.log(AppState.myEvents, "my events");
 
 
-    // AppState.myEvents = AppState.myEvents.filter(e => e.creator.id == AppState.account.id)
-    // AppState.myEvents = res.data
+    AppState.myEvents = res.data.map(m => new Event(m))
 
     AppState.myEvents = res.data.map(e => new Event(e))
     // AppState.myEvents = AppState.myEvents.filter(e => e.creator.id == AppState.account.id)

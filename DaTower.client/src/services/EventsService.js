@@ -17,7 +17,7 @@ class EventsService {
     }
 
     AppState.events = res.data.map(e => new Event(e), ...AppState.events)
-    console.log(AppState.events);
+    // console.log(AppState.events);
   }
 
   async getEventById(id) {
